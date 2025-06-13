@@ -10,7 +10,9 @@ import LoginView from '../views/LoginView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import EmployeesView from '../views/EmployeesView.vue'
 import ActivityView from '../views/ActivityView.vue'
+import ActivityStatsView from '../views/ActivityStatusView.vue'
 import ReportsView from '../views/ReportsView.vue'
+import ProfileView from '../views/ProfileView.vue'
 
 // Components (для вложенного отображения в dashboard)
 import WorkTimer from '@/components/WorkTimer.vue'
@@ -54,6 +56,15 @@ const routes = [
         }
       },
       {
+        path: 'activity-stats',
+        name: 'activity-stats',
+        component: ActivityStatsView,
+        meta: { 
+          title: 'Статистика активности',
+          requiresRole: ['admin', 'manager']
+        }
+      },
+      {
         path: 'reports',
         name: 'reports',
         component: ReportsView,
@@ -68,6 +79,14 @@ const routes = [
         meta: { 
           title: 'Сотрудники',
           requiresRole: ['admin', 'manager']
+        }
+      },
+      {
+        path: 'profile',
+        name: 'profile',
+        component: ProfileView,
+        meta: { 
+          title: 'Личный кабинет'
         }
       }
     ]
